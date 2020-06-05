@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+<!-- Come back and organize these sources -->
+
+https://foundation.wikimedia.org/wiki/Visual_identity_guidelines#:~:text=In%20the%20United%20States%2C%20the,logo%20to%20indicate%20appropriate%20ownership.
