@@ -70,3 +70,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 <!-- Come back and organize these sources -->
 
 https://foundation.wikimedia.org/wiki/Visual_identity_guidelines#:~:text=In%20the%20United%20States%2C%20the,logo%20to%20indicate%20appropriate%20ownership.
+
+https://commons.wikimedia.org/wiki/File:Japanese_Crest_mitu_Tomoe_Old_design.svg

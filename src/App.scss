@@ -8,6 +8,26 @@
 
     color: #5f4b32;
     background: #fbf0d9;
+    background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
+}
+
+.content-wrapper
+{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.SearchPage
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 50px;
 }
 
 h1,
@@ -32,25 +52,25 @@ h2
 
     border: none;
     border-radius: 4px;
+    outline: 1px solid transparent;
     background: #fbf0d9;
-    box-shadow: #fff9ed -5px -5px 20px, #e6e6e6 5px 5px 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
+    box-shadow: #fff9ed -5px -5px 20px, #d6d6d6cf 5px 5px 20px;
     &:focus
     {
         outline: thin dotted rgba(0,0,0,.7);
         outline-offset: 3px;
+        box-shadow: inset 1px 1px 2px #e6e6e6, inset -1px -1px 2px #fff9ed;
     }
 }
 
-button
+button,
+.button
 {
     display: block;
-    flex: 1;
-
-    width: 30px;
-    height: 30px;
-    margin-right: 8px;
 
     cursor: pointer;
+    transition: all .2s ease-in-out;
 
     box-shadow: #fff9ed 5px 5px 20px, #e6e6e6 -5px -5px 20px;
 
@@ -59,19 +79,6 @@ button
     {
         box-shadow: -2px -2px 5px #fff9ed, 2px 2px 5px #e6e6e6;
     }
-}
-
-.content
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    height: 40vh;
-    min-height: 370px;
-    margin: 0 auto;
-
-    text-align: center;
 }
 
 
@@ -84,20 +91,13 @@ button
 
 .search-input
 {
-    flex: 6;
-
-    margin-right: 10px;
+    margin-right: 0;
+    padding-right: 10px;
     padding-left: 10px;
 
     box-shadow: inset #e6e6e6 4px 4px 8px, inset #fff9ed 0 -4px 4px;
-
-    &:focus
-    {
-        outline: thin dotted rgba(0,0,0,.7);
-        outline-offset: 3px;
-        box-shadow: inset 1px 1px 2px #e6e6e6, inset -1px -1px 2px #fff9ed;
-    }
 }
+
 
 .powered-by-wrapper
 {
@@ -132,8 +132,48 @@ button
     margin-bottom: 15px;
 }
 
+.header-controls-wrapper
+{
+    display: flex;
+    justify-content: space-around;
+
+    width: 100px;
+    padding: 5px;
+
+    .button
+    {
+        padding: 15px;
+
+        cursor: pointer;
+
+        background: center center no-repeat;
+        background-size: 75%;
+
+        &.display-controls-button
+        {
+            background-image: url('./components/gear.svg');
+        }
+
+        &.info-modal-button
+        {
+            background-image: url('./components/info.svg');
+        }
+    }
+}
+
 footer,
 header
 {
-    background: #f9e7c2;
+    display: flex;
+    justify-content: flex-end;
+
+    padding-right: 10px;
+
+    text-align: right;
+
+    .website-link
+    {
+        margin: 0 2px;
+        padding: 2px;
+    }
 }
