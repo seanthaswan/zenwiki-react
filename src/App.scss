@@ -1,3 +1,6 @@
+@import './_helpers.scss';
+
+
 .App
 {
     display: flex;
@@ -7,7 +10,7 @@
     min-height: 100vh;
 
     color: #5f4b32;
-    background: #fbf0d9;
+    background: $sepia;
     background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
 }
 
@@ -25,7 +28,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 
-    min-height: 300px;
+    min-height: 400px;
     margin: 0 auto;
     padding: 50px;
 }
@@ -50,10 +53,10 @@ h2
 {
     transition: box-shadow .2s ease-in-out;
 
-    border: none;
+    border: 1px dotted rgba(0,0,0,.1);
     border-radius: 4px;
     outline: 1px solid transparent;
-    background: #fbf0d9;
+    background: $sepia;
     background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
     box-shadow: #fff9ed -5px -5px 20px, #d6d6d6cf 5px 5px 20px;
     &:focus
@@ -140,21 +143,27 @@ button,
     width: 100px;
     padding: 5px;
 
-    .button
+    button
     {
-        padding: 15px;
+        width: 40px;
+        height: 40px;
 
         cursor: pointer;
 
-        background: center center no-repeat;
-        background-size: 75%;
+        div
+        {
+            height: 100%;
 
-        &.display-controls-button
+            background: center center no-repeat;
+            background-size: 80%;
+        }
+
+        .display-controls-button
         {
             background-image: url('./components/gear.svg');
         }
 
-        &.info-modal-button
+        .info-modal-button
         {
             background-image: url('./components/info.svg');
         }
