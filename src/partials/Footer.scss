@@ -1,0 +1,29 @@
+@import '../_colors.scss';
+footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding-right: 10px;
+
+    transition: opacity .2s ease-in-out;
+    text-align: right;
+
+    opacity: .6;
+
+    &:hover
+    {
+        opacity: 1;
+    }
+
+    .website-link
+    {
+        margin: 0 4px;
+        padding: 2px 4px;
+
+        text-decoration: none;
+
+        color: $text-color-light;
+    }
+}

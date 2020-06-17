@@ -21,17 +21,7 @@
     flex: 1;
 }
 
-.SearchPage
-{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
 
-    min-height: 400px;
-    margin: 0 auto;
-    padding: 50px;
-}
 
 h1,
 h2
@@ -167,22 +157,5 @@ button,
         {
             background-image: url('./components/info.svg');
         }
-    }
-}
-
-footer,
-header
-{
-    display: flex;
-    justify-content: flex-end;
-
-    padding-right: 10px;
-
-    text-align: right;
-
-    .website-link
-    {
-        margin: 0 2px;
-        padding: 2px;
     }
 }
