@@ -17,6 +17,30 @@ function App() {
   // ----------
   const getResults = (searchBarValue) => {
     console.log(`Getting results for ${searchBarValue}`);
+
+    let url = 'https://en.wikipedia.org/w/api.php';
+    const params = {
+      action: 'query',
+      prop: 'extracts',
+      generator: 'prefixsearch',
+      formatversion: '2',
+      exintro: '1',
+      explaintext: '1',
+      gpssearch: 'Seattle',
+      format: 'json',
+    };
+
+
+    url += '?origin=*';
+    Object.keys(params).forEach((key) => { url += `&${key}=${params[key]}`; });
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        setSearchResults(response);
+      })
+      .catch((error) => { console.log(error); });
   };
 
   // ----------
@@ -29,8 +53,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="content-wrapper">
-        <SearchPage getResults={getResults} />
-        {searchResults && !selectedArticle ? <ResultsList handleResultsClick={() => handleResultsClick()} /> : false}
+        {searchResults && !selectedArticle ? <ResultsList handleResultsClick={() => handleResultsClick()} /> : <SearchPage getResults={getResults} />}
         { selectedArticle ? <ArticlePage /> : false}
       </div>
       <Footer />
