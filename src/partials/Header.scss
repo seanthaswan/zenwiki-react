@@ -14,3 +14,78 @@ header
         padding: 2px;
     }
 }
+.header-controls-wrapper
+{
+    display: flex;
+    justify-content: space-around;
+
+    width: 100px;
+    padding: 5px;
+}
+
+button
+{
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+
+    div
+    {
+        height: 100%;
+
+        background: center center no-repeat;
+        background-size: 80%;
+
+        &.dark-mode
+        {
+            filter: invert(1);
+        }
+    }
+
+    .display-controls-button
+    {
+        background-image: url('../components/gear.svg');
+    }
+
+    .info-modal-button
+    {
+        background-image: url('../components/info.svg');
+    }
+
+    .display-controls-theme
+    {
+        background-image: url('../components/dark-mode.svg');
+        background-image: url('../components/moon.png');
+        background-size: 80%;
+    }
+}
+
+.info-modal-button
+{
+    background-image: url('../components/info.svg');
+}
+
+.display-controls-drop-menu
+{
+    position: absolute;
+    top: 55px;
+    right: 16px;
+
+    animation: fadeInAnimation ease .2s;
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}

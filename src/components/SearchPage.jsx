@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './SearchPage.scss';
 
-const logo = require('./128px-Japanese_Crest_mitu_Tomoe_Old_design-edit-earth-wave.png');
+// const logo = require('./128px-Japanese_Crest_mitu_Tomoe_Old_design-edit-earth-wave.png');
+const logo = require('./enso-sm-sepia.png');
 
 export const SearchPage = (props) => {
   const [searchBarValue, setSearchBarValue] = useState();

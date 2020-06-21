@@ -10,8 +10,13 @@
     min-height: 100vh;
 
     color: #5f4b32;
-    background: $sepia;
+    background: $bg-color-light;
     background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
+
+    &.dark-mode
+    {
+        background: $bg-color-dark;
+    }
 }
 
 .content-wrapper
@@ -46,9 +51,14 @@ h2
     border: 1px dotted rgba(0,0,0,.1);
     border-radius: 4px;
     outline: 1px solid transparent;
-    background: $sepia;
+    background: $bg-color-light;
     background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
-    box-shadow: #fff9ed -5px -5px 20px, #d6d6d6cf 5px 5px 20px;
+    box-shadow: $highlight-light -5px -5px 20px, $shadow-light 5px 5px 20px;
+    &.dark-mode
+    {
+        background: $bg-color-dark;
+        box-shadow: $highlight-dark -5px -5px 20px, $highlight-dark 5px 5px 20px;
+    }
     &:focus
     {
         outline: thin dotted rgba(0,0,0,.7);
@@ -123,39 +133,4 @@ button,
     width: 167px;
     height: 125px;
     margin-bottom: 15px;
-}
-
-.header-controls-wrapper
-{
-    display: flex;
-    justify-content: space-around;
-
-    width: 100px;
-    padding: 5px;
-
-    button
-    {
-        width: 40px;
-        height: 40px;
-
-        cursor: pointer;
-
-        div
-        {
-            height: 100%;
-
-            background: center center no-repeat;
-            background-size: 80%;
-        }
-
-        .display-controls-button
-        {
-            background-image: url('./components/gear.svg');
-        }
-
-        .info-modal-button
-        {
-            background-image: url('./components/info.svg');
-        }
-    }
 }
