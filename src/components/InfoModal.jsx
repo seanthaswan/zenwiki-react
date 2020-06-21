@@ -1,4 +1,5 @@
 import React from 'react';
+import './InfoModal.scss';
 
 const wikimedia = require('./wikimedia-logo.png');
 const globe = require('./wikipedia-globe.png');

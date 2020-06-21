@@ -1,4 +1,7 @@
 @import '../_colors.scss';
+
+// LIGHT STYLES
+
 header
 {
     display: flex;
@@ -23,6 +26,8 @@ header
     padding: 5px;
 }
 
+
+
 button
 {
     width: 40px;
@@ -36,11 +41,6 @@ button
 
         background: center center no-repeat;
         background-size: 80%;
-
-        &.dark-mode
-        {
-            filter: invert(1);
-        }
     }
 
     .display-controls-button
@@ -87,5 +87,18 @@ button
     100%
     {
         opacity: 1;
+    }
+}
+
+// DARK STYLES 
+
+.dark-mode
+{
+    button
+    {
+        div
+        {
+            filter: invert(1);
+        }
     }
 }

@@ -10,20 +10,19 @@ footer
     transition: opacity .2s ease-in-out;
     text-align: right;
 
-    opacity: .6;
+    opacity: .4;
 
     &:hover
     {
-        opacity: 1;
+        opacity: .8;
     }
 
     .website-link
     {
-        margin: 0 4px;
         padding: 2px 4px;
 
         text-decoration: none;
 
-        color: $text-color-light;
+        color: inherit;
     }
 }

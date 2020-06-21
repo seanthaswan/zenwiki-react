@@ -9,13 +9,16 @@
 
     min-height: 100vh;
 
-    color: #5f4b32;
-    background: $bg-color-light;
-    background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
+    transition: background 1s ease;
 
+    color: $text-color-light-mode;
+    background: $bg-color-light-mode;
+    background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
     &.dark-mode
     {
-        background: $bg-color-dark;
+        color: $text-color-dark-mode;
+        background: $bg-color-dark-mode;
+        background-image: url('./components/absurdity-dark.png');
     }
 }
 
@@ -46,41 +49,39 @@ h2
 
 .soft
 {
-    transition: box-shadow .2s ease-in-out;
+    transition: background .2s ease-in-out,  box-shadow .2s ease-in-out;
 
     border: 1px dotted rgba(0,0,0,.1);
     border-radius: 4px;
     outline: 1px solid transparent;
-    background: $bg-color-light;
+    background: $bg-color-light-mode;
     background-image: url('https://www.transparenttextures.com/patterns/absurdity.png');
     box-shadow: $highlight-light -5px -5px 20px, $shadow-light 5px 5px 20px;
-    &.dark-mode
+
+    &:not(button),
+    &:not(input[type='submit'])
     {
-        background: $bg-color-dark;
-        box-shadow: $highlight-dark -5px -5px 20px, $highlight-dark 5px 5px 20px;
+        transition: background 1s ease-in-out,  box-shadow 1s ease-in-out;
     }
+
     &:focus
     {
         outline: thin dotted rgba(0,0,0,.7);
         outline-offset: 3px;
-        box-shadow: inset 1px 1px 2px #e6e6e6, inset -1px -1px 2px #fff9ed;
+        box-shadow: inset 1px 1px 2px $shadow-light, inset -1px -1px 2px $highlight-light;
     }
 }
 
-button,
-.button
+button
 {
     display: block;
 
     cursor: pointer;
-    transition: all .2s ease-in-out;
-
-    box-shadow: #fff9ed 5px 5px 20px, #e6e6e6 -5px -5px 20px;
 
     &:hover,
     &:focus
     {
-        box-shadow: -2px -2px 5px #fff9ed, 2px 2px 5px #e6e6e6;
+        box-shadow: -2px -2px 5px $highlight-light, 2px 2px 5px $shadow-light;
     }
 }
 
@@ -98,39 +99,52 @@ button,
     padding-right: 10px;
     padding-left: 10px;
 
-    box-shadow: inset #e6e6e6 4px 4px 8px, inset #fff9ed 0 -4px 4px;
+    color: inherit;
+    box-shadow: inset $shadow-light 4px 4px 8px, inset $highlight-light 0 -4px 4px;
 }
 
 
-.powered-by-wrapper
+// @@@@@@@@@@@@@@@@@
+// @@ DARK STYLES @@
+// @@@@@@@@@@@@@@@@@
+
+.dark-mode
 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    .soft
+    {
+        background: $bg-color-dark-mode;
+        background-image: url('./components/absurdity-dark.png');
+        box-shadow: $highlight-dark -5px -5px 20px, $shadow-dark 5px 5px 20px;
+        &:focus
+        {
+            outline: thin dotted rgba(255,255,255,.7);
+            outline-offset: 3px;
+            box-shadow: inset 1px 1px 2px $shadow-dark, inset -1px -1px 2px $highlight-dark;
+        }
+    }
 
-    padding: 15px 50px;
-}
+    button
+    {
+        box-shadow: $highlight-dark 5px 5px 20px,$shadow-dark -5px -5px 20px;
 
-.logo-row
-{
-    display: flex;
+        &:hover,
+        &:focus
+        {
+            box-shadow: $highlight-dark -2px -2px 5px , $shadow-dark 2px 2px 5px;
+        }
+    }
 
-    margin: 0 auto;
-    padding-top: 10px;
-}
+    .search-input
+    {
+        box-shadow: inset $shadow-dark 4px 4px 8px, inset $highlight-dark 0 -4px 4px;
+    }
 
-
-.wiki-globe-logo
-{
-    width: 109px;
-    height: 125px;
-    margin-right: 55px;
-    margin-bottom: 15px;
-}
-
-.wikimedia-logo
-{
-    width: 167px;
-    height: 125px;
-    margin-bottom: 15px;
+    input[type='submit']
+    {
+        &:hover,
+        &:focus
+        {
+            box-shadow: $highlight-dark -2px -2px 5px , $shadow-dark 2px 2px 5px;
+        }
+    }
 }

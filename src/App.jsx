@@ -5,6 +5,8 @@ import { SearchPage } from './components/SearchPage';
 import { ResultsList } from './components/ResultsList';
 import { ArticlePage } from './components/ArticlePage';
 import { Footer } from './partials/Footer';
+import { useDarkMode } from './components/useDarkMode';
+
 import './App.scss';
 
 
@@ -13,6 +15,13 @@ function App() {
   const [searchQuery, setSearchQuery] = useState();
   const [searchResults, setSearchResults] = useState();
   const [selectedArticle, setSelectedArticles] = useState();
+  const [theme, themeToggler] = useDarkMode();
+
+  const handleThemeChange = () => {
+    themeToggler();
+  };
+  console.log(theme);
+  const themeMode = theme === 'light' ? '' : 'dark-mode';
 
   // ----------
   const getResults = (searchBarValue) => {
@@ -50,8 +59,8 @@ function App() {
 
   // ----------
   return (
-    <div className="App">
-      <Header />
+    <div className={`App ${themeMode}`}>
+      <Header toggleTheme={handleThemeChange} theme={theme} />
       <div className="content-wrapper">
         {searchResults && !selectedArticle ? <ResultsList handleResultsClick={() => handleResultsClick()} /> : <SearchPage getResults={getResults} />}
         { selectedArticle ? <ArticlePage /> : false}
