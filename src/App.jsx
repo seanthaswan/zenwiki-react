@@ -46,8 +46,8 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
-        setSearchResults(response);
+        console.log(response.query.pages);
+        setSearchResults(response.query.pages);
       })
       .catch((error) => { console.log(error); });
   };
@@ -62,7 +62,7 @@ function App() {
     <div className={`App ${themeMode}`}>
       <Header toggleTheme={handleThemeChange} theme={theme} />
       <div className="content-wrapper">
-        {searchResults && !selectedArticle ? <ResultsList handleResultsClick={() => handleResultsClick()} /> : <SearchPage getResults={getResults} />}
+        {searchResults && !selectedArticle ? <ResultsList searchResults={searchResults} handleResultsClick={() => handleResultsClick()} /> : <SearchPage getResults={getResults} />}
         { selectedArticle ? <ArticlePage /> : false}
       </div>
       <Footer />
