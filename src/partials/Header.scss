@@ -63,7 +63,7 @@ button
 .logo-wrapper
 {
     position: absolute;
-    top: 0;
+    top: 5px;
     left: 50%;
 
     transform: translate(-50%, 0);
@@ -80,8 +80,8 @@ button
 .back-button-wrapper
 {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 5px;
+    left: 15px;
 
     animation: fadeInAnimation ease .2s;
     animation-iteration-count: 1;

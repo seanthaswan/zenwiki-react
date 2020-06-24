@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactNotification, { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 
-
 import './SearchPage.scss';
 
 // const logo = require('./128px-Japanese_Crest_mitu_Tomoe_Old_design-edit-earth-wave.png');

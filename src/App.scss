@@ -172,4 +172,12 @@ button
     {
         filter: invert(1);
     }
+
+    .result-item-wrapper
+    {
+        .text-fader
+        {
+            background: transparent;
+        }
+    }
 }

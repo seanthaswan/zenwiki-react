@@ -2,13 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ResultItem } from './ResultItem';
 
+import './ResultList.scss';
+
 export const ResultsList = (props) => {
   const { searchResults, searchQuery } = props;
 
   return (
-    <div>
-      <h1>
-        Showing results for:
+    <div className="result-item-container">
+      <h1 className="search-query-display">
+        Showing
+        {' '}
+        {searchResults.length}
+        {' '}
+        results for:
         “
         {searchQuery}
         ”

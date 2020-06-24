@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './ResultItem.scss';
 
 export const ResultItem = (props) => {
   const { result } = props;
   const { pageid, title, extract } = result;
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{extract}</p>
+    <div className="soft result-item-wrapper">
+      <div className="text-fader" />
+      <h2 className="result-title">{title}</h2>
+      <p className="result-extract">{extract}</p>
     </div>
   );
 };
