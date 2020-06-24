@@ -104,6 +104,25 @@ button
     box-shadow: inset $shadow-light 4px 4px 8px, inset $highlight-light 0 -4px 4px;
 }
 
+.user-message-toast
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    max-width: 0;
+
+    white-space: nowrap;
+
+    &.expanded
+    {
+        max-width: 230px;
+        padding: 10px;
+    }
+}
+
 
 // @@@@@@@@@@@@@@@@@
 // @@ DARK STYLES @@
@@ -147,5 +166,10 @@ button
         {
             box-shadow: $highlight-dark -2px -2px 5px , $shadow-dark 2px 2px 5px;
         }
+    }
+
+    .home-logo
+    {
+        filter: invert(1);
     }
 }

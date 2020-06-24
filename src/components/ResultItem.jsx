@@ -6,7 +6,7 @@ export const ResultItem = (props) => {
   const { pageid, title, extract } = result;
   return (
     <div>
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <p>{extract}</p>
     </div>
   );

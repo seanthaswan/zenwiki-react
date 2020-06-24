@@ -7,6 +7,7 @@ import { ArticlePage } from './components/ArticlePage';
 import { Footer } from './partials/Footer';
 import { useDarkMode } from './components/useDarkMode';
 
+
 import './App.scss';
 
 
@@ -17,6 +18,7 @@ function App() {
   const [selectedArticle, setSelectedArticles] = useState();
   const [theme, themeToggler] = useDarkMode();
 
+
   const handleThemeChange = () => {
     themeToggler();
   };
@@ -26,7 +28,7 @@ function App() {
   // ----------
   const getResults = (searchBarValue) => {
     console.log(`Getting results for ${searchBarValue}`);
-
+    setSearchQuery(searchBarValue);
     let url = 'https://en.wikipedia.org/w/api.php';
     const params = {
       action: 'query',
@@ -35,10 +37,9 @@ function App() {
       formatversion: '2',
       exintro: '1',
       explaintext: '1',
-      gpssearch: 'Seattle',
+      gpssearch: searchBarValue,
       format: 'json',
     };
-
 
     url += '?origin=*';
     Object.keys(params).forEach((key) => { url += `&${key}=${params[key]}`; });
@@ -60,9 +61,9 @@ function App() {
   // ----------
   return (
     <div className={`App ${themeMode}`}>
-      <Header toggleTheme={handleThemeChange} theme={theme} />
+      <Header setSearchResults={setSearchResults} searchResultsPresent={!!searchResults} toggleTheme={handleThemeChange} theme={theme} />
       <div className="content-wrapper">
-        {searchResults && !selectedArticle ? <ResultsList searchResults={searchResults} handleResultsClick={() => handleResultsClick()} /> : <SearchPage getResults={getResults} />}
+        {searchResults && !selectedArticle ? <ResultsList searchQuery={searchQuery} searchResults={searchResults} handleResultsClick={() => handleResultsClick()} /> : <SearchPage getResults={getResults} />}
         { selectedArticle ? <ArticlePage /> : false}
       </div>
       <Footer />

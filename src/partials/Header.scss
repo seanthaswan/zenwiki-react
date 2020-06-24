@@ -55,9 +55,41 @@ button
 
     .display-controls-theme
     {
-        background-image: url('../components/dark-mode.svg');
         background-image: url('../components/moon.png');
         background-size: 80%;
+    }
+}
+
+.logo-wrapper
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+    animation: fadeInAnimation ease .2s;
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+    .logo
+    {
+        background-image: url('../components/enso-sm.png');
+    }
+}
+
+.back-button-wrapper
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    animation: fadeInAnimation ease .2s;
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+    .back-button
+    {
+        background-image: url('../components/back-arrow.svg');
     }
 }
 

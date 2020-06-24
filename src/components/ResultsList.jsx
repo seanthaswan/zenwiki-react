@@ -3,10 +3,16 @@ import PropTypes from 'prop-types';
 import { ResultItem } from './ResultItem';
 
 export const ResultsList = (props) => {
-  const { searchResults } = props;
+  const { searchResults, searchQuery } = props;
 
   return (
     <div>
+      <h1>
+        Showing results for:
+        “
+        {searchQuery}
+        ”
+      </h1>
       {searchResults.map((resultItemData, i) => <ResultItem result={resultItemData} key={i} />)}
     </div>
   );
@@ -14,6 +20,7 @@ export const ResultsList = (props) => {
 
 ResultsList.propTypes = {
   searchResults: PropTypes.array,
+  searchQuery: PropTypes.string,
 };
 
 
