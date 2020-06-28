@@ -1,6 +1,11 @@
-.result-item-container
+.results-list-container
 {
     width: 75vw;
+}
+.results-items-container
+{
+    display: flex;
+    flex-direction: column;
 }
 
 .search-query-display

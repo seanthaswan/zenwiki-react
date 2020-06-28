@@ -8,7 +8,7 @@ export const ResultsList = (props) => {
   const { searchResults, searchQuery } = props;
 
   return (
-    <div className="result-item-container">
+    <div className="results-list-container">
       <h1 className="search-query-display">
         Showing
         {' '}
@@ -19,7 +19,9 @@ export const ResultsList = (props) => {
         {searchQuery}
         ”
       </h1>
-      {searchResults.map((resultItemData, i) => <ResultItem result={resultItemData} key={i} />)}
+      <div className="results-items-container">
+        {searchResults.map((resultItemData, i) => <ResultItem result={resultItemData} key={i} />)}
+      </div>
     </div>
   );
 };
