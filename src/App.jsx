@@ -15,14 +15,13 @@ function App() {
   // ----------
   const [searchQuery, setSearchQuery] = useState();
   const [searchResults, setSearchResults] = useState();
-  const [selectedArticle, setSelectedArticles] = useState();
+  const [selectedArticle, setSelectedArticle] = useState();
   const [theme, themeToggler] = useDarkMode();
 
 
   const handleThemeChange = () => {
     themeToggler();
   };
-  console.log(theme);
   const themeMode = theme === 'light' ? '' : 'dark-mode';
 
   // ----------
@@ -32,7 +31,7 @@ function App() {
     let url = 'https://en.wikipedia.org/w/api.php';
     const params = {
       action: 'query',
-      prop: 'extracts|info|description|pageimages|imageinfo',
+      prop: 'extracts|info|description|pageimages|imageinfo|pageterms',
       generator: 'prefixsearch',
       formatversion: '2',
       // exintro: '1',
@@ -41,6 +40,14 @@ function App() {
       inprop: 'url|displaytitle',
       iiprop: 'url|metadata|canonicaltitle|commonmetadata',
       gpssearch: searchBarValue,
+      list: 'search',
+      srsearch: searchBarValue,
+      srnamespace: 0,
+      srwhat: 'text',
+      srinfo: 'suggestion',
+      srprop: '',
+      sroffset: 0,
+      srlimit: 1,
       format: 'json',
     };
 
@@ -50,6 +57,7 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then((response) => {
+        console.log(response.continue);
         console.log(response.query);
         console.log(response.query.pages);
         setSearchResults(response.query.pages);
@@ -58,17 +66,30 @@ function App() {
   };
 
   // ----------
-  const handleResultsClick = (event) => {
-    console.log('You clicked a result', event);
+  const handleResultsClick = (itemData) => {
+    console.log('You clicked a result', itemData);
+    setSelectedArticle(itemData);
   };
 
   // ----------
   return (
     <div className={`App ${themeMode}`}>
-      <Header setSearchResults={setSearchResults} searchResultsPresent={!!searchResults} toggleTheme={handleThemeChange} theme={theme} />
+      <Header
+        setSearchResults={setSearchResults}
+        searchResultsPresent={!!searchResults}
+        toggleTheme={handleThemeChange}
+        theme={theme}
+      />
+
       <div className="content-wrapper">
-        {searchResults && !selectedArticle ? <ResultsList searchQuery={searchQuery} searchResults={searchResults} handleResultsClick={() => handleResultsClick()} /> : <SearchPage getResults={getResults} />}
-        { selectedArticle ? <ArticlePage /> : false}
+
+        {searchResults && !selectedArticle
+          ? <ResultsList searchQuery={searchQuery} searchResults={searchResults} handleResultsClick={(itemData) => handleResultsClick(itemData)} />
+          : <SearchPage getResults={getResults} />}
+
+        { selectedArticle
+          ? <ArticlePage articleData={selectedArticle} />
+          : false}
       </div>
       <Footer />
     </div>

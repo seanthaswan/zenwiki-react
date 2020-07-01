@@ -5,7 +5,13 @@ import { ResultItem } from './ResultItem';
 import './ResultList.scss';
 
 export const ResultsList = (props) => {
-  const { searchResults, searchQuery } = props;
+  const { searchResults, searchQuery, handleResultsClick } = props;
+
+  const resultItemClickHandler = (e, index) => {
+    const itemData = searchResults[index];
+    console.log('you clicked on a results item from the repeater', searchResults[index], itemData);
+    handleResultsClick(itemData);
+  };
 
   return (
     <div className="results-list-container">
@@ -20,7 +26,13 @@ export const ResultsList = (props) => {
         ”
       </h1>
       <div className="results-items-container">
-        {searchResults.map((resultItemData, i) => <ResultItem result={resultItemData} key={i} />)}
+        {searchResults.map((resultItemData, i) => (
+          <ResultItem
+            result={resultItemData}
+            key={i}
+            handleClick={(e) => resultItemClickHandler(e, i)}
+          />
+        ))}
       </div>
     </div>
   );
@@ -29,6 +41,7 @@ export const ResultsList = (props) => {
 ResultsList.propTypes = {
   searchResults: PropTypes.array,
   searchQuery: PropTypes.string,
+  handleResultsClick: PropTypes.func,
 };
 
 

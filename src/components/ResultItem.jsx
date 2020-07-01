@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './ResultItem.scss';
 
 export const ResultItem = (props) => {
-  const { result } = props;
+  const { result, handleClick } = props;
   const {
     pageid, title, extract, description, thumbnail,
   } = result;
@@ -18,11 +18,10 @@ export const ResultItem = (props) => {
   };
 
   return (
-    <div className="soft result-item-wrapper button">
+    <div className="soft result-item-wrapper button" onClick={(e) => handleClick(e)}>
       <div className="text-fader" />
       <h2 className="result-title">{title}</h2>
       {description ? <p className="result-description">{description}</p> : <p className="result-extract">{extract}</p>}
-
     </div>
   );
 };

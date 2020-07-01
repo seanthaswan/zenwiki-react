@@ -18,7 +18,13 @@ export const InfoModal = (props) => {
           zen
           <i>wiki</i>
           {' '}
-          provides a simple interface for searching Wikipedia articles. Every visible element is essential. I started from the idea of a research interface with an oddly satisfying "eye-feel"- meaning elements that please the eye and inspire exploration. The artistic direction is organic, essential, and minimalist in structure with neuskeuomorphistic tendencies. Featuring a theme toggler; try out dark mode!
+          provides a simple interface for searching Wikipedia articles.
+        </p>
+        <p>
+          Every visible element is essential.
+        </p>
+        <p>
+          I started from the idea of a research interface with an oddly satisfying "eye-feel"- meaning elements that please the eye and inspire exploration. The artistic direction is organic, essential, and minimalist in structure with neumorphism tendencies. This is the first project where I've implemented a "dark" theme, please give it a try!
         </p>
         <h2>Powered by</h2>
         <div className="logo-row">
