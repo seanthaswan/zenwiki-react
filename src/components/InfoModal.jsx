@@ -9,8 +9,8 @@ const react = require('./react-512.png');
 export const InfoModal = (props) => {
   const { closeWindow } = props;
   return (
-    <div className="powered-by-container" role="button" tabIndex={0} onClick={closeWindow} onKeyDown={closeWindow}>
-      <div className="powered-by-wrapper soft">
+    <div className="powered-by-container animate__animated animate__fadeIn" role="button" tabIndex={0} onClick={closeWindow} onKeyDown={closeWindow}>
+      <div className="powered-by-wrapper soft ">
         <h2>
           About zen
           <i>wiki</i>

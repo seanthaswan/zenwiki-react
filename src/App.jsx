@@ -24,8 +24,11 @@ function App() {
   };
 
   const clearState = () => {
+    if (selectedArticle) {
+      setSelectedArticle();
+    }
+
     setSearchQuery();
-    setSelectedArticle();
     setSearchResults();
   };
 
@@ -88,7 +91,7 @@ function App() {
         theme={theme}
       />
 
-      <div className="content-wrapper">
+      <div className="content-wrapper animate__animated animate__fadeIn">
 
         {searchResults && !selectedArticle
           ? <ResultsList searchQuery={searchQuery} searchResults={searchResults} handleResultsClick={(itemData) => handleResultsClick(itemData)} />

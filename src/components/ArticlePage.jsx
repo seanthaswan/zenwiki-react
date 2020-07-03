@@ -8,7 +8,7 @@ export const ArticlePage = ({
 }) => {
   console.log(articleData);
   return (
-    <div className="ArticlePage">
+    <div className="ArticlePage soft animate__animated animate__fadeIn animate__faster">
       <h1>{}</h1>
       <p>extract</p>
     </div>

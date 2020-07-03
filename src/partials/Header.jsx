@@ -11,10 +11,10 @@ export const Header = (props) => {
 
   return (
     <header>
-      <div className="header-controls-wrapper">
-        { searchResultsPresent ? <button type="button" aria-label="Back Button" className="dot-focus soft back-button-wrapper" onClick={clearState}><div className="back-button" /></button> : false }
+      <div className="header-controls-wrapper animate__animated animate__fadeIn animate__faster">
+        { searchResultsPresent ? <button type="button" aria-label="Back Button" className="dot-focus soft back-button-wrapper animate__animated animate__fadeIn animate__faster" onClick={clearState}><div className="back-button" /></button> : false }
 
-        { searchResultsPresent ? <button type="button" aria-label="Zenwiki logo" className="dot-focus soft logo-wrapper" onClick={clearState}><div className="logo" /></button> : false }
+        { searchResultsPresent ? <button type="button" aria-label="Zenwiki logo" className="dot-focus soft logo-wrapper animate__animated animate__fadeIn animate__faster" onClick={clearState}><div className="logo" /></button> : false }
 
         <button type="button" aria-label="App Info" className="dot-focus soft" onClick={() => setInfoModalShown(!infoModalShown)}><div className="info-modal-button" /></button>
         { infoModalShown ? (
@@ -23,8 +23,8 @@ export const Header = (props) => {
 
         <button type="button" aria-label="Display Settings" className="dot-focus soft" onClick={() => setDisplayDropDownShown(!displayDropDownShown)}><div className="display-controls-button" /></button>
         { displayDropDownShown ? (
-          <div className="display-controls-drop-menu">
-            <button type="button" aria-label="Dark Mode Toggler" className="soft " onClick={() => props.toggleTheme()}>
+          <div className="display-controls-drop-menu animate__animated animate__fadeIn animate__fast">
+            <button type="button" aria-label="Dark Mode Toggler" className="soft" onClick={() => props.toggleTheme()}>
               <div className="display-controls-theme" />
             </button>
           </div>

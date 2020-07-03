@@ -68,10 +68,7 @@ button
     left: 50%;
 
     transform: translate(-50%, 0);
-    animation: fadeInAnimation ease .2s;
-    animation-iteration-count: 1;
 
-    animation-fill-mode: forwards;
     .logo
     {
         background-image: url('../components/enso-sm.png');
@@ -84,10 +81,7 @@ button
     top: 5px;
     left: 15px;
 
-    animation: fadeInAnimation ease .2s;
-    animation-iteration-count: 1;
 
-    animation-fill-mode: forwards;
     .back-button
     {
         background-image: url('../components/back-arrow.svg');
@@ -104,23 +98,6 @@ button
     position: absolute;
     top: 55px;
     right: 16px;
-
-    animation: fadeInAnimation ease .2s;
-    animation-iteration-count: 1;
-
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeInAnimation
-{
-    0%
-    {
-        opacity: 0;
-    }
-    100%
-    {
-        opacity: 1;
-    }
 }
 
 // DARK STYLES 

@@ -15,24 +15,26 @@ export const ResultsList = (props) => {
 
   return (
     <div className="results-list-container">
-      <h1 className="search-query-display">
-        Showing
-        {' '}
-        {searchResults.length}
-        {' '}
-        results for:
-        “
-        {searchQuery}
-        ”
-      </h1>
-      <div className="results-items-container">
-        {searchResults.map((resultItemData, i) => (
-          <ResultItem
-            result={resultItemData}
-            key={i}
-            handleClick={(e) => resultItemClickHandler(e, i)}
-          />
-        ))}
+      <div className="animate__animated animate__fadeIn">
+        <h1 className="search-query-display animate__animated animate__fadeIn animate__slow">
+          Showing
+          {' '}
+          {searchResults.length}
+          {' '}
+          results for:
+          “
+          {searchQuery}
+          ”
+        </h1>
+        <div className="results-items-container animate__animated animate__fadeIn animate__slower">
+          {searchResults.map((resultItemData, i) => (
+            <ResultItem
+              result={resultItemData}
+              key={i}
+              handleClick={(e) => resultItemClickHandler(e, i)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

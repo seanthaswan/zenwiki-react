@@ -30,16 +30,15 @@ export const SearchPage = (props) => {
           getSearchResults(searchBarValue);
           if (!searchBarValue) {
             store.addNotification({
-              title: 'Wonderful!',
+              title: '',
               message: 'Please enter a search query.',
-              type: 'success',
+              type: 'default',
               insert: 'top',
               container: 'top-right',
-              animationIn: ['animated', 'fadeIn'],
-              animationOut: ['animated', 'fadeOut'],
+              animationIn: ['animate__animated', 'animate__fadeIn'],
+              animationOut: ['animate__animated', 'animate__fadeOutRight'],
               dismiss: {
-                duration: 5000,
-                onScreen: true,
+                duration: 2000,
               },
             });
           }
