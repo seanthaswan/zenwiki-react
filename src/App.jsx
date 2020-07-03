@@ -34,7 +34,7 @@ function App() {
       prop: 'extracts|info|description|pageimages|imageinfo|pageterms',
       generator: 'prefixsearch',
       formatversion: '2',
-      // exintro: '1',
+      exintro: '1',
       // explaintext: '1',
       // exsectionformat: 'wiki',
       inprop: 'url|displaytitle',

@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { InfoModal } from '../components/InfoModal';
-import { useDarkMode } from '../components/useDarkMode';
 
 import './Header.scss';
 
 export const Header = (props) => {
-  Header.defaultProps = {
-    backButtonShown: false,
-  };
-
   const { searchResultsPresent, setSearchResults } = props;
   const [displayDropDownShown, setDisplayDropDownShown] = useState(false);
   const [infoModalShown, setInfoModalShown] = useState(false);
-  // const [theme, themeToggler] = useDarkMode();
-  // console.log(theme);
-  // const themeMode = theme === 'light' ? '' : 'dark-mode';
 
   return (
     <header>
@@ -44,6 +36,7 @@ export const Header = (props) => {
 };
 
 Header.propTypes = {
+  setSearchResults: PropTypes.func,
   searchResultsPresent: PropTypes.bool,
 };
 
