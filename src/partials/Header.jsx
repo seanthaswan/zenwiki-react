@@ -5,16 +5,16 @@ import { InfoModal } from '../components/InfoModal';
 import './Header.scss';
 
 export const Header = (props) => {
-  const { searchResultsPresent, setSearchResults } = props;
+  const { searchResultsPresent, clearState } = props;
   const [displayDropDownShown, setDisplayDropDownShown] = useState(false);
   const [infoModalShown, setInfoModalShown] = useState(false);
 
   return (
     <header>
       <div className="header-controls-wrapper">
-        { searchResultsPresent ? <button type="button" aria-label="Back Button" className="dot-focus soft back-button-wrapper" onClick={() => setSearchResults(() => undefined)}><div className="back-button" /></button> : false }
+        { searchResultsPresent ? <button type="button" aria-label="Back Button" className="dot-focus soft back-button-wrapper" onClick={clearState}><div className="back-button" /></button> : false }
 
-        { searchResultsPresent ? <button type="button" aria-label="Zenwiki logo" className="dot-focus soft logo-wrapper" onClick={() => setSearchResults(() => undefined)}><div className="logo" /></button> : false }
+        { searchResultsPresent ? <button type="button" aria-label="Zenwiki logo" className="dot-focus soft logo-wrapper" onClick={clearState}><div className="logo" /></button> : false }
 
         <button type="button" aria-label="App Info" className="dot-focus soft" onClick={() => setInfoModalShown(!infoModalShown)}><div className="info-modal-button" /></button>
         { infoModalShown ? (
@@ -36,7 +36,7 @@ export const Header = (props) => {
 };
 
 Header.propTypes = {
-  setSearchResults: PropTypes.func,
+  clearState: PropTypes.func,
   searchResultsPresent: PropTypes.bool,
 };
 

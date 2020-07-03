@@ -22,6 +22,13 @@ function App() {
   const handleThemeChange = () => {
     themeToggler();
   };
+
+  const clearState = () => {
+    setSearchQuery();
+    setSelectedArticle();
+    setSearchResults();
+  };
+
   const themeMode = theme === 'light' ? '' : 'dark-mode';
 
   // ----------
@@ -75,7 +82,7 @@ function App() {
   return (
     <div className={`App ${themeMode}`}>
       <Header
-        setSearchResults={setSearchResults}
+        clearState={() => clearState()}
         searchResultsPresent={!!searchResults}
         toggleTheme={handleThemeChange}
         theme={theme}
