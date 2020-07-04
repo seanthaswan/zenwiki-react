@@ -19,26 +19,46 @@ function App() {
   const [theme, themeToggler] = useDarkMode();
 
 
+  // ----------
+  // Sent to the Header component, where the options menu exists.
+  // The button within options menu triggers the toggle function in useDarkMode.
   const handleThemeChange = () => {
     themeToggler();
   };
 
+  // ----------
+  // Sent to the SearchResults component, where each result item exists.
+  // Clicking on a result item saves the associated data into our state.
+  const handleResultsClick = (itemData) => {
+    setSelectedArticle(itemData);
+  };
+
+  // ----------
   const clearState = () => {
+    // If there is a selected article, return to the search results page.
     if (selectedArticle) {
       setSelectedArticle();
     }
 
+    // If the user is viewing search results, send them back to the search page.
     setSearchQuery();
     setSearchResults();
   };
 
+  // Stringifies the theme value returned from the useDarkMode hook.
   const themeMode = theme === 'light' ? '' : 'dark-mode';
 
   // ----------
+  // First, Construct the API endpoint by building a URL with a set of parameters.
+  // Then, Use built-in fetch function to send an XMLHttpRequest.
+  // Then, Ssave the response into our searchResult state.
   const getResults = (searchBarValue) => {
-    console.log(`Getting results for ${searchBarValue}`);
     setSearchQuery(searchBarValue);
+
+    // Using the documentation and API sandbox, I configured the request for the info
+    // that I needed for the project. https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&list=search&srsearch=Craig%20Noone&format=json
     let url = 'https://en.wikipedia.org/w/api.php';
+
     const params = {
       action: 'query',
       prop: 'extracts|info|description|pageimages|imageinfo|pageterms',
@@ -61,24 +81,19 @@ function App() {
       format: 'json',
     };
 
+    // We need to set the origin to allow for CORS
     url += '?origin=*';
+    // Iterate through each of the keys in `params` and concatenate the value of the key,
+    // along with the ampersand and equal signs to construct the full URL.
     Object.keys(params).forEach((key) => { url += `&${key}=${params[key]}`; });
 
     fetch(url)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.continue);
-        console.log(response.query);
-        console.log(response.query.pages);
+        console.dir(response.query.pages);
         setSearchResults(response.query.pages);
       })
       .catch((error) => { console.log(error); });
-  };
-
-  // ----------
-  const handleResultsClick = (itemData) => {
-    console.log('You clicked a result', itemData);
-    setSelectedArticle(itemData);
   };
 
   // ----------
